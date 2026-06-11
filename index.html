@@ -57,34 +57,6 @@
       color: #d8dee9;
     }
 
-    .actions {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin: 1.5rem 0 0.75rem;
-    }
-
-    button {
-      border: none;
-      border-radius: 999px;
-      padding: 0.95rem 1.8rem;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #3c366b;
-      background: #f8fafc;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    button:hover,
-    button:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 24px rgba(0, 0, 0, 0.18);
-      background: #eef2ff;
-      outline: none;
-    }
-
     hr {
       border: none;
       height: 1px;
@@ -105,16 +77,12 @@
     <h1>¡Hola Mundo!</h1>
     <p>Bienvenido a mi primera página con Git. Ahora es una página mejorada con diseño moderno, compatibilidad móvil y una fecha actualizada automáticamente.</p>
     <p class="date-text" id="fecha"></p>
-    <div class="actions">
-      <button id="refresh">Actualizar fecha</button>
-    </div>
     <hr>
     <h2>¡Git funciona perfectamente! 🎉</h2>
     <footer>Generado dinámicamente con JavaScript.</footer>
   </main>
   <script>
     const fechaElemento = document.getElementById('fecha');
-    const refreshButton = document.getElementById('refresh');
 
     const formatearFecha = (date) =>
       new Intl.DateTimeFormat('es-ES', {
@@ -126,8 +94,8 @@
       fechaElemento.textContent = 'Fecha: ' + formatearFecha(new Date());
     };
 
-    refreshButton.addEventListener('click', actualizarFecha);
     actualizarFecha();
+    setInterval(actualizarFecha, 1000);
   </script>
 </body>
 </html>
